@@ -1,0 +1,47 @@
+# hashicorp_install
+
+Role for installing HashiCorp product onto a Linux machine
+
+### Variables
+
+The default values for the variables are set in [`defaults/main.yml`](https://github.com/rickmoonex/hashicorp_homelab/blob/main/roles/hashicorp_install/defaults/main.yml):
+
+```yaml
+---
+# defaults file for hashicorp
+
+# You can select how to intall hashicorp products. Choose from `package` or
+# `manual`. `manual` means this role wil download from
+# "https://releases.hashicorp.com/vault/".
+hashicorp_installation_method: package
+
+# You can install hashicorp products using this list.
+# hashicorp_products:
+#   - name: consul
+#   - name: consul-template
+#   - name: nomad
+#   - name: packer
+#   - name: terraform
+#   - name: vagrant
+#   - name: vault
+
+# If you are using `manual` as the `hashicorp_installation_method`, you must
+# specify the version to install.
+# hashicorp_products:
+#   - name: vault
+#     version: "1.10.4"
+
+# For `vault` you can choose what type you want to install, either:
+# `oss` (default), `ent` or `hsm`.
+# hashicorp_products:
+#   - name: vault
+#     type: oss
+
+# Where to install the software in.
+hashicorp_destination: /usr/bin
+
+# The owner/group/mode for the installed binary.
+hashicorp_group: root
+hashicorp_owner: root
+hashicorp_mode: "0755"
+```
